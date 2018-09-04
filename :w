@@ -1,0 +1,14 @@
+bool hasNext(){
+	return true;
+};
+struct node next(){
+	return null;
+};
+struct node first(){
+	return null;
+}
+struct node last(){
+	return null;
+};
+void add(void* value){
+};
