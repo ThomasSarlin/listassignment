@@ -1,0 +1,10 @@
+*.swm
+*.swn
+*.swo
+*.swp
+:w
+Test
+a.out
+mpasswordsort
+psswwd
+
