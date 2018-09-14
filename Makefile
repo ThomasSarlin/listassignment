@@ -6,11 +6,11 @@ SOURCES = mpasswdsort.c userInfo.c linkedList.c
 
 TARGET = mpasswdsort
 
-all:
-		$(CC) -Wall -g $(SOURCES) -o $(TARGET)
+all:mpasswdsort.o userInfo.o linkedList.o
+		$(CC) -Wall mpasswdsort.o userInfo.o linkedList.o -o $(TARGET)
 
 main:mpasswdsort.o userInfo.o linkedList.o
-		$(CC) -Wall -g mpasswdsort.o userInfo.o linkedList.o -o $(TARGET)
+		$(CC) $(CFLAGS) mpasswdsort.o userInfo.o linkedList.o -o $(TARGET)
 
 mpasswdsort.o:mpasswdsort.c mpasswdsort.h
 	$(CC) $(CFLAGS) -c mpasswdsort.c
@@ -20,9 +20,4 @@ userInfo.o: userInfo.c userInfo.h
 
 linkedList.o:linkedList.c linkedList.h
 	$(CC) $(CFLAGS) -c linkedList.c 
-
-
-all33:
-	gcc mpasswdsort.c userInfo.c linkedList.c  -Wall -g -o mpasswdsort
-
 
