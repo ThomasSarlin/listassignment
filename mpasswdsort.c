@@ -197,7 +197,7 @@ bool checkToken(char* fullstring,char* token,int lineCount,int index){
 				result=false;
 			}
 			break;
-		case 2:
+	       	case 2:
 			if(isEmptyField(token)){
 				fprintf(stderr, "Line %d: The uid field" 
 					" cannot be empty\n",lineCount);
@@ -205,7 +205,8 @@ bool checkToken(char* fullstring,char* token,int lineCount,int index){
 			}
 			else if(!isPositive(token)){
 				fprintf(stderr,"Line %d: the 'uid' field" 
-						" has to be a positive number: %s\n",
+						" has to be a positive"
+						" number: %s\n",
 						lineCount,fullstring);	
 				result=false;
 			}
