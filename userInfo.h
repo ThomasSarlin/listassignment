@@ -3,7 +3,6 @@
    *  Laboration 1: Systemnära programmering, HT-18
    *  Ansvarar för intiering och hantering av användarinfo.
    */
-
 typedef struct user_info{
 	unsigned int uid;
 	char* uname;

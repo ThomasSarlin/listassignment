@@ -4,7 +4,6 @@
    *  Representerar en implementation av en dubbellänkad lista.
    */
 
-
 typedef void* value;
 typedef void freeFunc(value);
 typedef bool compareFunc(value,value);

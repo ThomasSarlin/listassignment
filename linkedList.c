@@ -12,7 +12,10 @@
 
 list* list_create(void){
 	list* newList=malloc(sizeof(struct list));
-	if(!newList)perror("no memory available");
+	if(!newList){
+		perror("no memory available");
+		exit(1);
+	}
 	newList->head=malloc(sizeof(struct node));
 	newList->head->next=NULL;
 	newList->head->prev=NULL;
@@ -86,7 +89,10 @@ node_pos list_first(list* l){
 
 node_pos list_insert(node_pos n, value v){
 	node_pos newNode = malloc(sizeof(struct node));
-	if(!newNode)perror("no memory available");
+	if(!newNode){
+		perror("no memory available");
+		exit(1);
+	}
 	newNode->value=v;
 	newNode->prev=n;
 	newNode->next=n->next;

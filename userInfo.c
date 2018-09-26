@@ -13,7 +13,10 @@ typedef void * value;
 
 user_info* userInfo_create(unsigned int uid, char* uname){
 	user_info* newInfo = malloc(sizeof(struct user_info));
-	if(!newInfo)perror("no memory available");
+	if(!newInfo){
+		perror("no memory available");
+		exit(1);
+	}
 	newInfo->uid=uid;
 	newInfo->uname=uname;
 	return newInfo;

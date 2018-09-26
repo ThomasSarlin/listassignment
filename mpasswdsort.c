@@ -89,7 +89,10 @@ int addFileToList(FILE* fp,list *l){
 
 	while((read= getline(&string,&len,fp))!=-1){
 		strCopy=malloc(strlen(string)*sizeof(char)+1);
-		if(!strCopy)perror("no memory available");
+		if(!strCopy){
+			perror("no memory available");
+			exit(1);
+		}
 		strCopy=strcpy(strCopy,string);
 		if(validFormat(strCopy,lineCount)){
 			addStringToList(string,l);	
@@ -121,7 +124,10 @@ void addStringToList(char *s,list *l){
 		switch(count){
 			case 0:
 				uname = malloc(strlen(token)*sizeof(char)+1);
-				if(!uname)perror("no memory available");
+				if(!uname){
+					perror("no memory available");
+					exit(1);
+				}	
 				uname = strcpy(uname,token);
 				break;
 			case 2:
@@ -156,7 +162,10 @@ bool validFormat(char* string,int lineCount){
 	bool validFormat=true;
 	char *token, *fullstring;
 	fullstring=malloc(strlen(string)*sizeof(char)+1);
-	if(!fullstring)perror("no memory available");
+	if(!fullstring){
+		perror("no memory available");
+		exit(1);	
+	}
 	fullstring=strcpy(fullstring,string);
 	fullstring =strtok(fullstring,"\n");
 
