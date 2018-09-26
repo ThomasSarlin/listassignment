@@ -6,18 +6,19 @@ SOURCES = mpasswdsort.c userInfo.c linkedList.c
 
 TARGET = mpasswdsort
 
-all:mpasswdsort.o userInfo.o linkedList.o
-		$(CC) -Wall mpasswdsort.o userInfo.o linkedList.o -o $(TARGET)
+all:mpasswordsort
 
-main:mpasswdsort.o userInfo.o linkedList.o
+
+mpasswordsort:mpasswdsort.o userInfo.o linkedList.o
 		$(CC) $(CFLAGS) mpasswdsort.o userInfo.o linkedList.o -o $(TARGET)
-
 mpasswdsort.o:mpasswdsort.c mpasswdsort.h
-	$(CC) $(CFLAGS) -c mpasswdsort.c
+	$(CC) -c mpasswdsort.c
 
 userInfo.o: userInfo.c userInfo.h
-	$(CC) $(CFLAGS) -c userInfo.c
+	$(CC) -c userInfo.c
 
 linkedList.o:linkedList.c linkedList.h
-	$(CC) $(CFLAGS) -c linkedList.c 
+	$(CC)  -c linkedList.c 
 
+valgrind: mpasswordsort
+	valgrind --leak-check=yes --show-reachable=yes ./mpasswordsort < /etc/passwd
